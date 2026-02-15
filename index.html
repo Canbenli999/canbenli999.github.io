@@ -3,55 +3,261 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Can Benli | Computer Engineering</title>
+    <title>Can Benli | Computer Engineering Student</title>
     <style>
-        body { font-family: -apple-system, sans-serif; line-height: 1.6; max-width: 850px; margin: 0 auto; padding: 40px; background: #f4f7f9; color: #2c3e50; }
-        header { background: #004488; color: white; padding: 40px; border-radius: 12px; text-align: center; margin-bottom: 30px; }
-        h1 { margin: 0; font-size: 2.5rem; }
-        .section { background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); margin-bottom: 25px; }
-        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 15px; margin-top: 15px; }
-        .skill-tag { background: #e1ecf4; color: #39739d; padding: 8px 12px; border-radius: 20px; font-size: 0.9rem; font-weight: bold; text-align: center; border: 1px solid #7aa7c7; }
-        .project-card { border-left: 5px solid #004488; padding-left: 20px; }
-        .btn { display: inline-block; background: #004488; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; font-weight: bold; margin-top: 15px; transition: 0.3s; }
-        .btn:hover { background: #002d5a; transform: translateY(-2px); }
+        :root {
+            --bg-color: #0f172a; /* Deep Navy/Slate */
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            --text-secondary: #94a3b8;
+            --accent: #38bdf8; /* Sky Blue */
+            --font-main: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* Layout Utilities */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        h1, h2, h3 {
+            line-height: 1.2;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, var(--accent), #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--accent);
+            color: var(--bg-color);
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: transform 0.2s;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            background-color: #7dd3fc;
+        }
+
+        /* Sections */
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 40px;
+            border-left: 5px solid var(--accent);
+            padding-left: 15px;
+        }
+
+        /* Grid Layouts */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        /* Cards */
+        .card {
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 10px;
+            border: 1px solid #334155;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            border-color: var(--accent);
+        }
+
+        .card h3 {
+            margin-bottom: 10px;
+            color: var(--accent);
+        }
+
+        .tag-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .tag {
+            background-color: rgba(56, 189, 248, 0.1);
+            color: var(--accent);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+
+        /* Timeline (Education) */
+        .timeline-item {
+            margin-bottom: 30px;
+            padding-left: 20px;
+            border-left: 2px solid var(--text-secondary);
+        }
+
+        .timeline-date {
+            color: var(--accent);
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        /* Contact Footer */
+        footer {
+            text-align: center;
+            padding: 50px 0;
+            border-top: 1px solid #334155;
+            margin-top: 50px;
+        }
+
+        footer a {
+            color: var(--text-main);
+            margin: 0 15px;
+            text-decoration: none;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+        }
     </style>
 </head>
 <body>
 
-<header>
-    <h1>Can Benli</h1>
-    <p>Computer Engineering Student @ Politecnico di Torino</p>
-</header>
+    <header class="hero">
+        <div class="container">
+            <h1>Hi, I'm Can Benli.</h1>
+            <p>Computer Engineering Student at Politecnico di Torino.</p>
+            <p style="font-size: 1rem; margin-top: -20px;">Specializing in Linux, Operating Systems, and Data Analysis.</p>
+            <br>
+            <a href="#contact" class="btn">Get in Touch</a>
+        </div>
+    </header>
 
-<div class="section">
-    <h2>About Me</h2>
-    <p>I am a Computer Engineering student focused on building robust software solutions. My experience ranges from high-level Object-Oriented Programming to low-level systems architecture.</p>
-</div>
+    <section class="container">
+        <h2 class="section-title">About Me</h2>
+        <div style="max-width: 700px;">
+            <p style="color: var(--text-secondary); font-size: 1.1rem;">
+                I am an undergraduate engineering student bridging the gap between hardware and software. 
+                Currently pursuing my B.E. at Politecnico di Torino (Class of 2026), I have built a diverse 
+                technical foundation through coursework at institutions like Boğaziçi and Koç University. 
+                <br><br>
+                My passion lies in <strong>Operating Systems</strong> and <strong>Data Analysis</strong>, 
+                supported by a multilingual background that allows me to collaborate across borders.
+            </p>
+        </div>
+    </section>
 
-<div class="section">
-    <h2>Technical Skills</h2>
-    <div class="skills-grid">
-        <div class="skill-tag">Java</div>
-        <div class="skill-tag">C / C++</div>
-        <div class="skill-tag">Linux / Unix</div>
-        <div class="skill-tag">Git / GitHub</div>
-        <div class="skill-tag">Software Design</div>
-        <div class="skill-tag">English (C1)</div>
-    </div>
-</div>
+    <section class="container">
+        <h2 class="section-title">Technical Skills</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Core Engineering</h3>
+                <p>Systems-level programming and analysis.</p>
+                <div class="tag-container">
+                    <span class="tag">Linux</span>
+                    <span class="tag">Operating Systems</span>
+                    <span class="tag">Math Statistics</span>
+                </div>
+            </div>
+            <div class="card">
+                <h3>Development</h3>
+                <p>Software and application building.</p>
+                <div class="tag-container">
+                    <span class="tag">Android Dev</span>
+                    <span class="tag">Arduino</span>
+                    <span class="tag">MATLAB</span>
+                    <span class="tag">Game Theory</span>
+                </div>
+            </div>
+            <div class="card">
+                <h3>Data & AI</h3>
+                <p>Processing and intelligence.</p>
+                <div class="tag-container">
+                    <span class="tag">Big Data Analysis</span>
+                    <span class="tag">Artificial Intelligence</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<div class="section">
-    <h2>Academic Projects</h2>
-    <div class="project-card">
-        <h3>OOP Final Project (Java)</h3>
-        <p>A comprehensive system developed for the final examination at PoliTo. Focused on design patterns, modular architecture, and clean code principles.</p>
-        <a href="https://github.com/Canbenli999/OOP_Project" class="btn">Explore Source Code</a>
-    </div>
-</div>
+    <section class="container">
+        <h2 class="section-title">Education</h2>
+        
+        <div class="timeline-item">
+            <div class="timeline-date">2021 - 2026 (Expected)</div>
+            <h3>Politecnico di Torino</h3>
+            <p>Bachelor of Engineering - Computer Engineering</p>
+        </div>
 
-<footer>
-    <p style="text-align: center; color: #888;">&copy; 2024 Can Benli | Built with GitHub Pages</p>
-</footer>
+        <div class="timeline-item">
+            <div class="timeline-date">Specialized Coursework</div>
+            <h3>Boğaziçi, Koç, & Sabanci Universities</h3>
+            <p>Focused studies in AI, Game Programming, and Big Data Analysis.</p>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-date">2016 - 2021</div>
+            <h3>American Collegiate Institute (ACI)</h3>
+            <p>International Baccalaureate (Bilingual Diploma)</p>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container">
+            <h2>Let's Connect</h2>
+            <p style="margin: 20px 0; color: var(--text-secondary);">
+                cbenli1008@gmail.com
+            </p>
+            <div>
+                <a href="https://www.linkedin.com/in/canbenlii" target="_blank">LinkedIn</a>
+                <a href="#">GitHub</a>
+            </div>
+            <br>
+            <p style="font-size: 0.8rem; color: #475569;">&copy; 2024 Can Benli. Built with HTML/CSS.</p>
+        </div>
+    </footer>
 
 </body>
 </html>
